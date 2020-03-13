@@ -1,33 +1,5 @@
 <div class="container">
-  <h2 class="mt-3">Réservés</h2>
-  <% @my_received_reservations.each do |reservation| %>
-    <% if reservation.status == "accepted" %>
-        <div class="card-items">
 
-        <div class="card-item-infos">
-          <p><%= reservation.garde.name %></p>
-          <p><%= reservation.user.username %></p>
-          <p>Status <%= reservation.status %></p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-
-    <h2 class="mt-3">Mes demandes de réservation </h2>
-    <% @my_received_reservations.each do |order| %>
-    <% if reservation.status != "accepted" %>
-      <div class="card-items">
-
-        <div class="card-item-infos">
-          <p><%= reservation.garde.name %></p>
-          <p><%= reservation.user.username %></p>
-          <p>Status <%= reservation.status %></p>
-          <p><%= link_to "Accept", change_status_order_path(order, :status => "accept"), method: :POST, class:"btn btn-outline-dark" %></p>
-          <p><%= link_to "Decline", change_status_order_path(order, :status => "decline"), method: :POST, class:"btn btn-outline-dark" %> </p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
 
 
   <h2 class="mt-3">Mes services</h2>
@@ -39,15 +11,15 @@
 
             <p><%=  garde.quantity_max %></p>
 
-            <% if garde.can_delete? %>
 
-              <p><%= link_to "Edit", edit_garde_path(meal.id), class:"btn btn-outline-dark" %></p>
-              <p><%= link_to "Delete", garde_path(meal.id), class:"btn btn-outline-dark",
+
+              <p><%= link_to "Edit", edit_garde_path(garde.id), class:"btn btn-outline-dark" %></p>
+              <p><%= link_to "Delete", garde_path(garde.id), class:"btn btn-outline-dark",
                 method: :delete,
                 data: { confirm: "Are you sure?" } %>
              </p>
 
-            <% end %>
+
           </div>
         </div>
     <% end %>

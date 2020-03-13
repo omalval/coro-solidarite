@@ -4,8 +4,8 @@
 <div class="container">
   <div class="meal-main-container">
     <div class="left-content">
-      <!-- div titre + photo -->
-      <div class="d-flex justify-content-between">
+      <!-- div titre + photo <-->
+       <div class="d-flex justify-content-between">
         <div>
           <h1><%= @garde.name.capitalize %></h1>
         </div>
@@ -17,7 +17,10 @@
         <p><%= @garde.description %> </p>
         <p><%= @garde.address %> </p>
         <p><%= @garde.start_availability_date %> </p>
+        <% if @garde.quantity_max != nil %>
         <p> Nombre de personnes max : <%= @garde.quantity_max %> </p>
+        <% end %>
+
 
       </div>
 

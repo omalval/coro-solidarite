@@ -11,8 +11,8 @@ class GardesController < ApplicationController
       {
         lat: garde.latitude,
         lng: garde.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { garde: garde }),
-        # image_url: helpers.asset_url('carottes.png')
+        infoWindow: render_to_string(partial: "info_window", locals: { garde: garde })
+
       }
     end
   end
@@ -74,6 +74,6 @@ class GardesController < ApplicationController
   end
 
   def garde_params
-    params.require(:garde).permit(:name, :description, :address, :start_availability_date, :end_availability_date)
+    params.require(:garde).permit(:name, :description, :address, :quantity_max, :start_availability_date, :end_availability_date)
   end
 end
