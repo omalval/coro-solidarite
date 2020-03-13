@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
     @reservation.meal = @reservation
     if @reservation.save
       flash[:notice] = "Votre réservation a bien été enregistrée"
-      redirect_to my_orders_path
+      redirect_to my_reservations_path
     else
       render 'gardes/show'
     end

@@ -1,0 +1,12 @@
+<%= simple_form_for(@garde) do |f| %>
+  <%= f.input :name, label: 'Votre service' %>
+  <%= f.input :description, label: 'Description'  %>
+  <%= f.input :address, label: 'Votre adresse' %>
+  <%#= f.input :category, label: 'Choisissez une catégorie', collection: Meal::CATEGORIES %>
+  <%= f.input :quantity_max, label: 'Nombre de personnes maximum' %>
+  <%= f.input :start_availability_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :end_availability_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+
+
+  <%= f.submit "Ajouter un service", class: "button"  %>
+  <% end %>

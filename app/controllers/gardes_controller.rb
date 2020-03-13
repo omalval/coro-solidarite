@@ -1,19 +1,11 @@
 class GardesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show], raise: false
   before_action :set_garde, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    # @query = params[:query]
-    # @query_on_category = params[:category]
 
-    # if @query.present?
-    #   @gardes = Garde.geocoded.global_search(params[:query])
-    # elsif @query_on_category.present?
-    #   categories = @query_on_category.select { |k, v| v == '1' }.keys
-    #   @gardes = Garde.geocoded.select { |m| categories.include?(m.category) }
-    # else
-      @gardes = Garde.All
+      @gardes = Garde.all
   end
 
   #   @markers = @gardes.map do |meal|
@@ -41,8 +33,6 @@ class GardesController < ApplicationController
 
     @my_received_gardes = my_received_gardes.flatten
   end
-
-
 
   def view_my_garde
     @my_gardes = Garde.where(user: current_user)
@@ -83,6 +73,6 @@ class GardesController < ApplicationController
   end
 
   def garde_params
-    params.require(:garde).permit(:name, :description, :address, :category, :quantity_max, :start_availability_date, :end_availability_date)
+    params.require(:garde).permit(:name, :description, :address, :quantity_max, :start_availability_date, :end_availability_date)
   end
 end

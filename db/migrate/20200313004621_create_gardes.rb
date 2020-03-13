@@ -12,7 +12,6 @@ class CreateGardes < ActiveRecord::Migration[5.2]
       t.date :end_availability_date
       t.references :user, foreign_key: true
       t.timestamps null: false
-      t.timestamps
     end
   end
 end
