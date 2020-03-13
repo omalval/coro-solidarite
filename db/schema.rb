@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2020_03_13_062748) do
     t.date "pick_up_date", default: "2020-03-13"
     t.text "reservation_comment"
     t.integer "user_id"
-    t.integer "gardes_id"
+    t.integer "garde_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["gardes_id"], name: "index_reservations_on_gardes_id"
+    t.index ["garde_id"], name: "index_reservations_on_garde_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 

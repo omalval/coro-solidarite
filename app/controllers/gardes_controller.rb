@@ -27,8 +27,9 @@ class GardesController < ApplicationController
     @my_gardes = Garde.where(user: current_user)
 
     my_received_gardes = []
+
     @my_gardes.each do |garde|
-      my_received_gardes << garde.reservation
+      my_received_gardes << garde.reservations
     end
 
     @my_received_gardes = my_received_gardes.flatten

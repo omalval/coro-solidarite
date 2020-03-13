@@ -28,4 +28,9 @@ const fitMapToMarkers = (map, markers) => {
   }
 };
 
+
+
+
 export { initMapbox };
+
+

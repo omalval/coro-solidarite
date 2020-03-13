@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
     @garde = Garde.find(params[:garde_id])
-    @reservation.meal = @reservation
+    @reservation.garde = @garde
     if @reservation.save
       flash[:notice] = "Votre réservation a bien été enregistrée"
       redirect_to my_reservations_path
@@ -23,6 +23,7 @@ class ReservationsController < ApplicationController
       render 'gardes/show'
     end
   end
+
 
   def change_status
     @reservation = Reservation.find(params[:id])

@@ -9,11 +9,7 @@
         <div>
           <h1><%= @garde.name.capitalize %></h1>
         </div>
-        <div>
-        <!-- div photo + nom -->
 
-          <%= @garde.user.username %>
-        </div>
       </div>
 
       <div class="meal-info-details">
@@ -45,5 +41,8 @@
 
     </div>
   </div>
+  <div class="go-back-bouton">
+  <%= link_to "Retour aux services", gardes_path %>
+</div>
   <!-- div left content -->
 </div>

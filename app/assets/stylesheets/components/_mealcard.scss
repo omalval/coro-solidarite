@@ -1,3 +1,22 @@
+.form-meals {
+  padding: 10px 15px;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.go-back-bouton {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #036B70;
+  transition: background 0.3s ease;
+  opacity: 1;
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
 .cards_and_map_container {
   display: flex;
   flex-direction: row;
