@@ -1,0 +1,85 @@
+.cards_and_map_container {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.cards_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.meal-card {
+  width: 300px;
+  position: relative;
+  color: black;
+  margin: .5rem 0 1rem 0;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.meal-card-disabled {
+  cursor: not-allowed;
+  opacity: .3;
+  color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.box:hover {
+  box-shadow: none;
+  transform: scale(1.03);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.meal-info {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+}
+
+.meal-card-image {
+  height: 250px;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+.meal-card-image span {
+  opacity: 0;
+}
+
+.meal-card-content {
+  padding: 24px;
+  text-decoration: none;
+  background-color: #F8F9FA;
+}
+
+.meal-card-attributes p {
+  margin-bottom: 0 !important;
+}
+
+.meal-card-title-and-category {
+  margin-bottom: 20px;
+}
+
+
+
+.grey {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(150, 150, 150, 0);
+}
+
+.material-icons {
+  font-size: 20px;
+}

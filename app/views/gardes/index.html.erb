@@ -1,51 +1,35 @@
-<div class="container mt-3 ">
-
-
-<!-- adding searchbar-->
-
-<%= render '/shared/search-bar' %>
-
-
+<div class="container">
 <!-- mosaic of meals -->
-<div class="cards_and_map_container">
-  <div class="row cards-row">
+  <div class="cards_and_map_container">
+    <div class="cards_container">
 
-    <% @gardes.each do |garde| %>
-      <div class="box col-6">
-        <%= link_to garde_path(garde) do %>
-          <div class="meal-card">
+      <% @gardes.each do |garde| %>
+        <!-- <div class="box col-6"> -->
 
-            <% if garde.left_quantity == 0 || garde.left_quantity < 0 %>
+            <div class="meal-card">
 
-              <span class="badge badge-pill badge-warning">
-                Ce service n'est plus disponible
-              </span>
-            <% end %>
-            <div class="meal-card-image" style="background: url('<%= cl_image_path meal.photo %>')"></div>
-            <div class="meal-card-content">
-              <div class="meal-card-title-and-category">
-                <div class="meal-card-title"><h4><%= garde.name %></h4></div>
-              </div>
-                <div class="meal-card-attributes d-flex align-items-end">
-                  <div class="d-flex align-items-center">
-                    <span><%= garde.quantity_max %></span>
-                    <i class="material-icons ml-1">people</i>
+              <div class="meal-card-content">
+                <div class="meal-card-title-and-category">
+                  <div class="meal-card-title"><h4><%= garde.name %></h4></div>
+                  <div class="meal-card-title"><h4><%= garde.address %></h4></div>
+                </div>
+                  <div class="meal-card-attributes d-flex align-items-end">
+                    <div class="d-flex align-items-center">
+                      <span><%= garde.quantity_max %></span>
+                      <i class="material-icons ml-1">people</i>
+
+                    </div>
+
 
                   </div>
-                  <div class="d-flex ml-5">
-                    <div class="order-count"><%= garde.left_quantity %></div>
-                    <span><p class="ml-1">left</p></span>
-                  </div>
-
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+
         </div>
-      <% end %>
-    </div>
-  <div id="map" style="width: 40%; height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
   </div>
 </div>

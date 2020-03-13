@@ -3,9 +3,10 @@
   <%= f.input :description, label: 'Description'  %>
   <%= f.input :address, label: 'Votre adresse' %>
   <%#= f.input :category, label: 'Choisissez une catégorie', collection: Meal::CATEGORIES %>
-  <%= f.input :quantity_max, label: 'Nombre de personnes maximum' %>
-  <%= f.input :start_availability_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-  <%= f.input :end_availability_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :quantity_max, label: 'Nombre de personnes maximum (en cas de garde)' %>
+  <%= f.input :contact, label: 'Numéro de téléphone ou mail' %>
+  <%= f.input :start_availability_date, label: 'date de début', as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :end_availability_date, label: 'date de fin', as: :string, required: false, input_html: {class: "datepicker"} %>
 
 
   <%= f.submit "Ajouter un service", class: "button"  %>

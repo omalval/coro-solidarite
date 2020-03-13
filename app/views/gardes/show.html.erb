@@ -12,12 +12,15 @@
         <div>
         <!-- div photo + nom -->
 
-          <p><%= @garde.user.username %></p>
+          <%= @garde.user.username %>
         </div>
       </div>
 
       <div class="meal-info-details">
+        <p><%= @garde.user.username %></p>
         <p><%= @garde.description %> </p>
+        <p><%= @garde.address %> </p>
+        <p><%= @garde.start_availability_date %> </p>
         <p> Nombre de personnes max : <%= @garde.quantity_max %> </p>
 
       </div>

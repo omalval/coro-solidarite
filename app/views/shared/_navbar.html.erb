@@ -32,13 +32,11 @@
           <%= link_to "Proposer un service", new_garde_path %>
         </button>
 
-        <button class="border-none add-meal" type="button" >
-          <%= link_to "Log out", destroy_user_session_path,  method: :delete %>
-        </button>
+
 
       <li class="dropdown align-self-center d-none d-sm-block mr-3">
         <button class="dropdown-toggle border-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mes services
+          Mon profil
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <% if user_signed_in? %>
