@@ -4,19 +4,19 @@ class GardesController < ApplicationController
 
 
   def index
+    @gardes = Garde.geocoded
 
-      @gardes = Garde.all
+
+    @markers = @gardes.map do |garde|
+      {
+        lat: garde.latitude,
+        lng: garde.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { garde: garde }),
+        image_url: helpers.asset_url('carottes.png')
+      }
+    end
   end
 
-  #   @markers = @gardes.map do |meal|
-  #     {
-  #       lat: meal.latitude,
-  #       lng: meal.longitude,
-  #       infoWindow: render_to_string(partial: "info_window", locals: { garde: garde }),
-  #       image_url: helpers.asset_url('carottes.png')
-  #     }
-  #   end
-  # end
 
   def show
     @garde = Garde.find(params[:id])

@@ -22,27 +22,27 @@ class Garde < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :address, presence: true
-  # validates :category, presence: true, inclusion: { in: CATEGORIES }
+
   validates :quantity_max, presence: true, numericality: { only_integer: true }
   # validates :start_availability_date, presence: true
   # validates :end_availability_date, presence: true
   # mount_uploader :photo, PhotoUploader
 
-  # geocoded_by :address
-  # after_validation :geocode, if: :will_save_change_to_address?
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
-  # def can_delete?
-  #   !self.reservations.pluck(:status).include?('accepted')
-  # end
+  def can_delete?
+    !self.reservations.pluck(:status).include?('accepted')
+  end
 
-  # def left_quantity
-  #   if !can_delete?
-  #     self.quantity_max - self.reservations.where(status: "accepted").pluck(:reservation_quantity).reduce(:+)
-  #   else
-  #     self.quantity_max
-  #   end
-  # end
+  def left_quantity
+    if !can_delete?
+      self.quantity_max - self.reservations.where(status: "accepted").pluck(:reservation_quantity).reduce(:+)
+    else
+      self.quantity_max
+    end
+  end
 
   # def rating_average
   #   self.reviews.map { |review| review.rating }.reduce(:+) / self.reviews.count.to_f
