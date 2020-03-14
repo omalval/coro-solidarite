@@ -24,13 +24,9 @@
             <div class="garde-details"><%= garde.address %></div>
             <div class="garde-details"><%= garde.start_availability_date %></div>
 
-              <% if garde.quantity_max != nil %>
-                <span><%= garde.quantity_max %></span>
-                <i class="material-icons ml-1">people</i>
-                <div class="garde-details"><%= garde.user.username %></div>
-                <% else %>
-                <div class="garde-details"><%= garde.user.username %></div>
-              <% end %>
+
+                <div class="garde-details">Proposé par: <%= garde.user.username %></div>
+
 
             </div>
         <button class="bouton-ok">

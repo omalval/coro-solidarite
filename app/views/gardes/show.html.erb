@@ -1,18 +1,9 @@
-<div class="meal-banner" >
-</div>
+ <div class="reservation-container">
 
-<div class="container">
-  <div class="meal-main-container">
-    <div class="left-content">
-      <!-- div titre + photo <-->
-       <div class="d-flex justify-content-between">
-        <div>
           <h1><%= @garde.name.capitalize %></h1>
-        </div>
 
-      </div>
 
-      <div class="meal-info-details">
+      <div class="garde-info-details">
         <% if @garde.user == current_user %>
           <p>Proposé par: Moi</p>
           <% else %>
@@ -26,22 +17,17 @@
         <p>Date: <%= @garde.start_availability_date %> </p>
         <% end %>
 
-
       </div>
-
-
-    </div>
     <!-- div photo + nom -->
-    <div class="right-content">
+    <div class="reservation">
 
       <% if @garde.user != current_user %>
-        <div class="checkout card p-3">
+        <div class="resa">
 
             <%= simple_form_for(@reservation) do |f| %>
               <%= hidden_field_tag :garde_id, @garde.id %>
-              <%= f.input :pick_up_date %>
-              <%= f.input :reservation_quantity %>
-              <%= f.button :submit, class: "button" %>
+              <%= f.input :pick_up_date, label: 'Choisir une date' %>
+              <%= f.submit "Ok, je réserve", class: "cool-bouton" %>
             <% end %>
           <% else %>
 
@@ -51,10 +37,10 @@
     </div>
   </div>
   <div class="choix">
+  <% if @garde.user == current_user %>
   <div class="go-back-bouton">
   <%= link_to "Retour aux services", gardes_path %>
   </div>
-  <% if @garde.user == current_user %>
   <p><%= link_to "Modifier", edit_garde_path(@garde), class:"btn btn-outline-dark" %>
   <% end %>
 
