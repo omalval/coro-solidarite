@@ -1,0 +1,6 @@
+
+
+  <%= simple_form_for [@garde, @garde_category] do |f| %>
+    <%= f.association :category, collection: Category::CATEGORY %>
+    <%= render "meal_categories/precisions_form" %>
+  <% end %>

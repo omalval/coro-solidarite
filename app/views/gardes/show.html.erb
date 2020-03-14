@@ -13,12 +13,17 @@
       </div>
 
       <div class="meal-info-details">
-        <p><%= @garde.user.username %></p>
-        <p><%= @garde.description %> </p>
-        <p><%= @garde.address %> </p>
-        <p><%= @garde.start_availability_date %> </p>
+        <% if @garde.user == current_user %>
+          <p>Proposé par: Moi</p>
+          <% else %>
+          <p>Proposé par <%= @garde.user.username %> </p>
+          <% end %>
+        <p>Description: <%= @garde.description %> </p>
         <% if @garde.quantity_max != nil %>
         <p> Nombre de personnes max : <%= @garde.quantity_max %> </p>
+        <p>Adresse: <%= @garde.address %> </p>
+        <p>Contact: <%= @garde.contact %> </p>
+        <p>Date: <%= @garde.start_availability_date %> </p>
         <% end %>
 
 
@@ -39,13 +44,21 @@
               <%= f.button :submit, class: "button" %>
             <% end %>
           <% else %>
+
         </div>
       <% end %>
 
     </div>
   </div>
+  <div class="choix">
   <div class="go-back-bouton">
   <%= link_to "Retour aux services", gardes_path %>
+  </div>
+  <% if @garde.user == current_user %>
+  <p><%= link_to "Modifier", edit_garde_path(@garde), class:"btn btn-outline-dark" %>
+  <% end %>
+
+  </p>
 </div>
   <!-- div left content -->
 </div>

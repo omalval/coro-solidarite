@@ -1,5 +1,5 @@
 class GardesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show], raise: false
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_garde, only: [:show, :edit, :update, :destroy]
 
 
@@ -74,6 +74,6 @@ class GardesController < ApplicationController
   end
 
   def garde_params
-    params.require(:garde).permit(:name, :description, :address, :quantity_max, :start_availability_date, :end_availability_date)
+    params.require(:garde).permit(:name, :description, :contact, :category, :address, :quantity_max, :start_availability_date, :end_availability_date)
   end
 end

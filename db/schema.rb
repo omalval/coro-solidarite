@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_231621) do
+ActiveRecord::Schema.define(version: 2020_03_14_002637) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "garde_categories", force: :cascade do |t|
+    t.integer "garde_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_garde_categories_on_category_id"
+    t.index ["garde_id"], name: "index_garde_categories_on_garde_id"
+  end
 
   create_table "gardes", force: :cascade do |t|
     t.string "name"

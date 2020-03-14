@@ -2,12 +2,14 @@ class Garde < ApplicationRecord
   belongs_to :user
   has_many :reservations, dependent: :destroy
   has_many :clients_users, through: :reservations, source: :user
+  has_many :garde_categories, dependent: :destroy
+  has_many :categories, through: :garde_categories
   # has_many :reviews
 
 
 
 
-  # CATEGORIES = ["Chinese", "French", "Sushi", "Dessert", "Grandma", "Italian", "Healthy", "Moroccan", "Burger", "Vegan", "Thaï", "Hawaïan"]
+  CATEGORIES = ["Garde d'enfant", "Courses", "Aide aux devoirs", "Aide aux personnes âgées"]
 
   # pg_search_scope :global_search,
   #   against: [ :name, :description, :category ],
@@ -22,6 +24,7 @@ class Garde < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :address, presence: true
+  validates :contact, presence: true
 
   # validates :quantity_max, presence: true, numericality: { only_integer: true }
   # validates :start_availability_date, presence: true
